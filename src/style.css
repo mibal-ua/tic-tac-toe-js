@@ -1,0 +1,16 @@
+body {
+    font-family: "JetBrains Mono", serif;
+    background-color: darkgrey;
+}
+
+.blackCell {
+    height: 50px;
+    width: 50px;
+    background-color: #000;
+}
+
+.whiteCell {
+    height: 50px;
+    width: 50px;
+    background-color: #fff;
+}
