@@ -10,17 +10,12 @@ h1 {
     padding-bottom: 20px;
 }
 
-.blackCell {
-    height: 50px;
-    width: 50px;
-    background-color: #000;
-}
-
-.whiteCell {
-    height: 50px;
-    width: 50px;
+.cell {
+    height: 100px;
+    width: 100px;
     background-color: #fff;
 }
+
 
 #gameTable {
     padding: 20px;
