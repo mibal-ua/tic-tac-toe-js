@@ -2,6 +2,13 @@ body {
     font-family: "JetBrains Mono", serif;
     background-color: white;
 }
+h1 {
+    margin: auto;
+    text-align: center;
+    font-size: 18px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
 
 .blackCell {
     height: 50px;
