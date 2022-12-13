@@ -1,18 +1,35 @@
 'use strict';
 
-
-function addElement() {
-    let element = document.createElement('div');
-    element.className = 'blackCell';
-    const gameTable = document.getElementById("gameTable");
-    gameTable.appendChild(element);
-    element = document.createElement('div');
-    element.className = 'whiteCell';
-    gameTable.appendChild(element);
+function createElements() {
+    const array = [];
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            const cell = document.createElement('div');
+            cell.className = 'cell';
+            cell.id = `${i}, ${j}`;
+            const textElement = document.createElement('p');
+            textElement.className = 'sign';
+            const sign = document.createTextNode(' ');
+            textElement.appendChild(sign);
+            cell.appendChild(textElement);
+            array.push({ cell, text: textElement });
+        }
+    }
+    return array;
 }
 
+function outAllCells(gameTable) {
+    const gameTableDiv = document.getElementById("gameTable");
+    for (const cell of gameTable) {
+        gameTableDiv.appendChild(cell.cell);
+    }
+}
 
-// document.body.insertBefore(element, gameTable);
+const gameTable = createElements();
+outAllCells(gameTable);
+
+
+
 
 
 
