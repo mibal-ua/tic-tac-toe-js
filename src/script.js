@@ -1,18 +1,17 @@
 'use strict';
 
-function createElements() {
+const Sign = {
+    X: {text: 'X'},
+    O: {text: '0'},
+    EMPTY: {text: ' '},
+}
+
+const initializeCells = () => {
     const array = [];
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
-            const cell = document.createElement('div');
-            cell.className = 'cell';
-            cell.id = `${i}, ${j}`;
-            const textElement = document.createElement('p');
-            textElement.className = 'sign';
-            const sign = document.createTextNode(' ');
-            textElement.appendChild(sign);
-            cell.appendChild(textElement);
-            array.push({ cell, text: textElement });
+            const cell = cellFactory(`${i}, ${j}`);
+            array.push(cell)
         }
     }
     return array;
