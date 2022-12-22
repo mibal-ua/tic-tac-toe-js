@@ -43,6 +43,20 @@ const Sign = {
 
 const initializeCells = () => {
     const array = [];
+
+    function cellFactory(id) {
+        const cell = document.createElement('div');
+        cell.className = 'cell';
+        cell.id = id;
+        const textElement = document.createElement('p');
+        textElement.className = 'sign';
+        const sign = document.createTextNode(Sign.EMPTY.text);
+        textElement.appendChild(sign);
+        cell.appendChild(textElement);
+        cell.onclick = makeMove(cell.id);
+        return new Cell(cell, Sign.EMPTY,);
+    }
+
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
             const cell = cellFactory(`${i}, ${j}`);
