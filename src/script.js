@@ -74,16 +74,14 @@ const makeMove = id => () => {
 
 function outAllCells(gameTable) {
     const gameTableDiv = document.getElementById("gameTable");
-    for (const cell of gameTable) {
-        gameTableDiv.appendChild(cell.cell);
+    gameTableDiv.innerHTML = '';
+    for (const cell of gameTable.data) {
+        gameTableDiv.appendChild(cell.HTML);
     }
 }
 
-const gameTable = createElements();
+const gameTable = new GameTable();
 outAllCells(gameTable);
-
-
-
 
 
 
