@@ -54,7 +54,7 @@ const initializeCells = () => {
         textElement.appendChild(sign);
         cell.appendChild(textElement);
         cell.onclick = makeMove(cell.id);
-        return new Cell(cell, Sign.EMPTY,);
+        return new Cell(cell, Sign.EMPTY);
     }
 
     for (let i = 0; i < 3; i++) {
@@ -67,9 +67,9 @@ const initializeCells = () => {
 }
 
 const makeMove = id => () => {
-    alert(`setSign(${id}, ${Sign.X.text})`)
-    if(gameTable.cellIsEmpty(id))
-    gameTable.setSign(id, Sign.X);
+    if (gameTable.cellIsEmpty(id)) {
+        gameTable.setSign(id, Sign.X);
+    }
     outAllCells(gameTable);
 }
 
