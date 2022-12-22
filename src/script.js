@@ -1,5 +1,19 @@
 'use strict';
 
+class Cell {
+
+    constructor(HTML, sign) {
+        this.HTML = HTML;
+        this.sign = sign;
+    }
+
+    set sign(sign) {
+        const text = document.createTextNode(sign.text);
+        this.HTML.firstChild.appendChild(text);
+    }
+
+}
+
 const Sign = {
     X: {text: 'X'},
     O: {text: '0'},
