@@ -66,6 +66,12 @@ const initializeCells = () => {
     return array;
 }
 
+const makeMove = id => () => {
+    alert(`setSign(${id}, ${Sign.X.text})`)
+    gameTable.setSign(id, Sign.X);
+    outAllCells(gameTable);
+}
+
 function outAllCells(gameTable) {
     const gameTableDiv = document.getElementById("gameTable");
     for (const cell of gameTable) {
