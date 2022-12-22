@@ -20,7 +20,7 @@ class GameTable {
         this.data = initializeCells();
     }
 
-    isEmpty(id) {
+    cellIsEmpty(id) {
         const cell = document.getElementById(id);
         return cell.sign === Sign.EMPTY;
     }
@@ -68,6 +68,7 @@ const initializeCells = () => {
 
 const makeMove = id => () => {
     alert(`setSign(${id}, ${Sign.X.text})`)
+    if(gameTable.cellIsEmpty(id))
     gameTable.setSign(id, Sign.X);
     outAllCells(gameTable);
 }
