@@ -14,6 +14,27 @@ class Cell {
 
 }
 
+class GameTable {
+
+    constructor() {
+        this.data = initializeCells();
+    }
+
+    isEmpty(id) {
+        const cell = document.getElementById(id);
+        return cell.sign === Sign.EMPTY;
+    }
+
+    setSign(id, sign) {
+        const cell = document.getElementById(id);
+        alert(`text changed to ${cell.sign.text}`)
+        if (cell.sign === Sign.EMPTY) {
+            cell.sign = sign;
+        }
+    }
+
+}
+
 const Sign = {
     X: {text: 'X'},
     O: {text: '0'},
