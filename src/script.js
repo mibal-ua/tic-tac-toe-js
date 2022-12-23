@@ -69,10 +69,10 @@ const makeMove = id => () => {
     if (gameTable.cellIsEmpty(id)) {
         gameTable.setSign(id, Sign.X);
     }
-    outAllCells(gameTable);
+    printGameTable(gameTable);
 }
 
-function outAllCells(gameTable) {
+function printGameTable(gameTable) {
     const gameTableDiv = document.getElementById("gameTable");
     gameTableDiv.innerHTML = '';
     for (const cell of gameTable.data) {
