@@ -2,14 +2,17 @@
 
 class Cell {
 
-    constructor(HTML, sign) {
-        this.HTML = HTML;
-        this.sign = sign;
+    sign;
+
+    constructor(html, sign) {
+        this.html = html;
+        this.setSign(sign);
     }
 
-    set sign(sign) {
+    setSign(sign) {
         const text = document.createTextNode(sign.text);
-        this.HTML.firstChild.appendChild(text);
+        this.html.firstChild.appendChild(text);
+        this.sign = sign;
     }
 
 }
@@ -28,7 +31,7 @@ class GameTable {
     setSign(id, sign) {
         const cell = this.data[id];
         if (cell.sign === Sign.EMPTY) {
-            cell.sign = sign;
+            cell.setSign(sign);
         }
     }
 
