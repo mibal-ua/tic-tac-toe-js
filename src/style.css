@@ -14,7 +14,14 @@ h1 {
     height: 100px;
     width: 100px;
     background-color: #fff;
+    align-content: center;
 }
+
+.sign {
+    font-size: 40px;
+    text-align: center;
+}
+
 
 
 #gameTable {
