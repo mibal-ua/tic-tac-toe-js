@@ -43,6 +43,15 @@ const Sign = {
     EMPTY: {text: ' '},
 }
 
+const userMove = id => () => {
+    if (gameTable.cellIsEmpty(id)) {
+        gameTable.setSign(id, Sign.X);
+        // TODO winnerVerifier
+        // TODO computerMove
+        printGameTable(gameTable);
+    }
+}
+
 const initializeCells = () => {
     const array = [];
 
@@ -53,10 +62,8 @@ const initializeCells = () => {
         const textElement = document.createElement('p');
         textElement.className = 'sign';
         const sign = Sign.EMPTY
-        // const node = document.createTextNode(sign.text);
-        // textElement.appendChild(node);
         htmlCell.appendChild(textElement);
-        htmlCell.onclick = makeMove(htmlCell.id);
+        htmlCell.onclick = userMove(htmlCell.id);
         return new Cell(htmlCell, sign);
     }
 
@@ -66,13 +73,6 @@ const initializeCells = () => {
         }
     }
     return array;
-}
-
-const makeMove = id => () => {
-    if (gameTable.cellIsEmpty(id)) {
-        gameTable.setSign(id, Sign.X);
-    }
-    printGameTable(gameTable);
 }
 
 function printGameTable(gameTable) {
@@ -85,8 +85,6 @@ function printGameTable(gameTable) {
     }
 }
 
+// game logic
 const gameTable = new GameTable();
 printGameTable(gameTable);
-
-
-
