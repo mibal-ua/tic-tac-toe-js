@@ -78,8 +78,10 @@ const makeMove = id => () => {
 function printGameTable(gameTable) {
     const gameTableDiv = document.getElementById("gameTable");
     gameTableDiv.innerHTML = '';
-    for (const cell of gameTable.data) {
-        gameTableDiv.appendChild(cell.HTML);
+    const array = gameTable.data;
+    for (const key in array) {
+        const cell = array[key];
+        gameTableDiv.appendChild(cell.html);
     }
 }
 
