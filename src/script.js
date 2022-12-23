@@ -21,13 +21,12 @@ class GameTable {
     }
 
     cellIsEmpty(id) {
-        const cell = document.getElementById(id);
+        const cell = this.data[id];
         return cell.sign === Sign.EMPTY;
     }
 
     setSign(id, sign) {
-        const cell = document.getElementById(id);
-        alert(`text changed to ${cell.sign.text}`)
+        const cell = this.data[id];
         if (cell.sign === Sign.EMPTY) {
             cell.sign = sign;
         }
@@ -45,22 +44,22 @@ const initializeCells = () => {
     const array = [];
 
     function cellFactory(id) {
-        const cell = document.createElement('div');
-        cell.className = 'cell';
-        cell.id = id;
+        const htmlCell = document.createElement('div');
+        htmlCell.className = 'cell';
+        htmlCell.id = id;
         const textElement = document.createElement('p');
         textElement.className = 'sign';
-        const sign = document.createTextNode(Sign.EMPTY.text);
-        textElement.appendChild(sign);
-        cell.appendChild(textElement);
-        cell.onclick = makeMove(cell.id);
-        return new Cell(cell, Sign.EMPTY);
+        const sign = Sign.EMPTY
+        // const node = document.createTextNode(sign.text);
+        // textElement.appendChild(node);
+        htmlCell.appendChild(textElement);
+        htmlCell.onclick = makeMove(htmlCell.id);
+        return new Cell(htmlCell, sign);
     }
 
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
-            const cell = cellFactory(`${i}, ${j}`);
-            array.push(cell)
+            array[`${i}, ${j}`] = cellFactory(`${i}, ${j}`);
         }
     }
     return array;
@@ -82,7 +81,7 @@ function outAllCells(gameTable) {
 }
 
 const gameTable = new GameTable();
-outAllCells(gameTable);
+printGameTable(gameTable);
 
 
 
