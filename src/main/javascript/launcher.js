@@ -2,6 +2,8 @@
 
 import { Cell } from "./structures/Cell.js";
 
+import { Sign } from "./structures/Sign.js";
+
 class GameTable {
 
     constructor() {
@@ -19,12 +21,6 @@ class GameTable {
             cell.setSign(sign);
         }
     }
-}
-
-const Sign = {
-    X: {text: 'X'},
-    O: {text: '0'},
-    EMPTY: {text: ' '},
 }
 
 const userMove = (id) => () => {
