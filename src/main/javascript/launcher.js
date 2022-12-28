@@ -1,21 +1,6 @@
 'use strict';
 
-class Cell {
-
-    sign;
-
-    constructor(html, sign) {
-        this.html = html;
-        this.setSign(sign);
-    }
-
-    setSign(sign) {
-        const text = document.createTextNode(sign.text);
-        this.html.firstChild.appendChild(text);
-        this.sign = sign;
-    }
-
-}
+import { Cell } from "./structures/Cell.js";
 
 class GameTable {
 
@@ -34,7 +19,6 @@ class GameTable {
             cell.setSign(sign);
         }
     }
-
 }
 
 const Sign = {
@@ -43,7 +27,7 @@ const Sign = {
     EMPTY: {text: ' '},
 }
 
-const userMove = id => () => {
+const userMove = (id) => () => {
     if (gameTable.cellIsEmpty(id)) {
         gameTable.setSign(id, Sign.X);
         // TODO winnerVerifier
