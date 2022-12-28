@@ -7,7 +7,7 @@ import { Sign } from "./structures/Sign.js";
 class GameTable {
 
     constructor() {
-        this.data = initializeCells();
+        initializeCells(this);
     }
 
     cellIsEmpty(id) {
@@ -33,7 +33,7 @@ class GameTable {
     }
 }
 
-const userMove = (id) => () => {
+const userMove = (id, gameTable) => () => {
     if (gameTable.cellIsEmpty(id)) {
         gameTable.setSign(id, Sign.X);
         // TODO winnerVerifier
@@ -42,27 +42,26 @@ const userMove = (id) => () => {
     }
 }
 
-const initializeCells = () => {
+const initializeCells = (gameTable) => {
     const array = [];
-
-    function cellFactory(id) {
-        const htmlCell = document.createElement('div');
-        htmlCell.className = 'cell';
-        htmlCell.id = id;
-        const textElement = document.createElement('p');
-        textElement.className = 'sign';
-        const sign = Sign.EMPTY
-        htmlCell.appendChild(textElement);
-        htmlCell.onclick = userMove(htmlCell.id);
-        return new Cell(htmlCell, sign);
-    }
-
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
-            array[`${i}, ${j}`] = cellFactory(`${i}, ${j}`);
+            array[`${i}, ${j}`] = cellFactory(`${i}, ${j}`, gameTable);
         }
     }
-    return array;
+    gameTable.data = array;
+}
+
+function cellFactory(id, gameTable) {
+    const htmlCell = document.createElement('div');
+    htmlCell.className = 'cell';
+    htmlCell.id = id;
+    const textElement = document.createElement('p');
+    textElement.className = 'sign';
+    const sign = Sign.EMPTY
+    htmlCell.appendChild(textElement);
+    htmlCell.onclick = userMove(htmlCell.id, gameTable);
+    return new Cell(htmlCell, sign);
 }
 
 // game logic
