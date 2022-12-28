@@ -1,10 +1,10 @@
 'use strict';
 
-import { Sign } from "./Sign";
+import { Sign } from "./Sign.js";
 
-import { Cell } from "./Cell";
+import { Cell } from "./Cell.js";
 
-import { userMove } from "./User";
+import { userMove } from "./User.js";
 
 class GameTable {
 
@@ -20,7 +20,6 @@ class GameTable {
             htmlCell.onclick = userMove(htmlCell.id, gameTable);
             return new Cell(htmlCell, sign);
         }
-
         const array = [];
         for (let i = 0; i < 3; i++) {
             for (let j = 0; j < 3; j++) {

@@ -1,6 +1,6 @@
 'use strict';
 
-import { Sign } from "./Sign";
+import { Sign } from "./Sign.js";
 
 const userMove = (id, gameTable) => () => {
     if (gameTable.cellIsEmpty(id)) {

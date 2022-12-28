@@ -1,17 +1,8 @@
 'use strict';
 
-import { GameTable } from "./structures/GameTable";
+import { GameTable } from "./structures/GameTable.js";
 
-import { Sign } from "./structures/Sign.js";
-
-const userMove = (id, gameTable) => () => {
-    if (gameTable.cellIsEmpty(id)) {
-        gameTable.setSign(id, Sign.X);
-        // TODO winnerVerifier
-        // TODO computerMove
-        gameTable.print();
-    }
-}
+import { userMove } from "./structures/User.js";
 
 // game logic
 const gameTable = new GameTable();
