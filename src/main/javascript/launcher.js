@@ -21,6 +21,16 @@ class GameTable {
             cell.setSign(sign);
         }
     }
+
+    print() {
+        const gameTableDiv = document.getElementById("gameTable");
+        gameTableDiv.innerHTML = '';
+        const array = this.data;
+        for (const key in array) {
+            const cell = array[key];
+            gameTableDiv.appendChild(cell.html);
+        }
+    }
 }
 
 const userMove = (id) => () => {
@@ -28,7 +38,7 @@ const userMove = (id) => () => {
         gameTable.setSign(id, Sign.X);
         // TODO winnerVerifier
         // TODO computerMove
-        printGameTable(gameTable);
+        gameTable.print();
     }
 }
 
@@ -55,16 +65,6 @@ const initializeCells = () => {
     return array;
 }
 
-function printGameTable(gameTable) {
-    const gameTableDiv = document.getElementById("gameTable");
-    gameTableDiv.innerHTML = '';
-    const array = gameTable.data;
-    for (const key in array) {
-        const cell = array[key];
-        gameTableDiv.appendChild(cell.html);
-    }
-}
-
 // game logic
 const gameTable = new GameTable();
-printGameTable(gameTable);
+gameTable.print();
