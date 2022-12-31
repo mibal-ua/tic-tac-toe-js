@@ -50,6 +50,11 @@ class GameTable {
             gameTableDiv.appendChild(cell.html);
         }
     }
+
+    clear() {
+        //TODO clear cells
+        
+    }
 }
 
 export { GameTable };

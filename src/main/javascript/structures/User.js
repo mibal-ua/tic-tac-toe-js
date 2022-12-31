@@ -12,13 +12,15 @@ const userMove = (id, gameTable) => () => {
         gameTable.setSign(id, Sign.X);
         gameTable.print();
         if (winnerVerifier.gameIsOver(gameTable)) {
-            // TODO Player Win
+            alert('Player win!');
+            gameTable.clear();
         }
 
         makeComputerMove(gameTable, Sign.O);
         gameTable.print();
         if (winnerVerifier.gameIsOver(gameTable)) {
-            // TODO Computer win
+            alert('Computer win!');
+            gameTable.clear();
         }
     } else {
         alert(`Cell isn't empty, choose another.`)
