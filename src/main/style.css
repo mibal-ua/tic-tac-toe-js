@@ -2,6 +2,7 @@ body {
     font-family: "JetBrains Mono", serif;
     background-color: white;
 }
+
 h1 {
     margin: auto;
     text-align: center;
@@ -15,14 +16,13 @@ h1 {
     width: 100px;
     background-color: #fff;
     align-content: center;
+    user-select: none;
 }
 
 .sign {
     font-size: 40px;
     text-align: center;
 }
-
-
 
 #gameTable {
     padding: 20px;
