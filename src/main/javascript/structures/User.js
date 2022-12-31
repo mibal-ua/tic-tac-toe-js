@@ -8,6 +8,8 @@ const userMove = (id, gameTable) => () => {
         // TODO winnerVerifier
         // TODO computerMove
         gameTable.print();
+    } else {
+        alert(`Cell isn't empty, choose another.`)
     }
 }
 
