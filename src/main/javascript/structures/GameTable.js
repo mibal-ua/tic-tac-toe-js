@@ -6,27 +6,31 @@ import { Cell } from "./Cell.js";
 
 import { userMove } from "./User.js";
 
+const initializeCells = () => {
+    function cellFactory(id, gameTable) {
+        const htmlCell = document.createElement('div');
+        htmlCell.className = 'cell';
+        htmlCell.id = id;
+        const textElement = document.createElement('p');
+        textElement.className = 'sign';
+        const sign = Sign.EMPTY
+        htmlCell.appendChild(textElement);
+        htmlCell.onclick = userMove(htmlCell.id, gameTable);
+        return new Cell(htmlCell, sign);
+    }
+    const array = [];
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            array[`${i}, ${j}`] = cellFactory(`${i}, ${j}`, this);
+        }
+    }
+    return array;
+}
+
 class GameTable {
 
     constructor() {
-        function cellFactory(id, gameTable) {
-            const htmlCell = document.createElement('div');
-            htmlCell.className = 'cell';
-            htmlCell.id = id;
-            const textElement = document.createElement('p');
-            textElement.className = 'sign';
-            const sign = Sign.EMPTY
-            htmlCell.appendChild(textElement);
-            htmlCell.onclick = userMove(htmlCell.id, gameTable);
-            return new Cell(htmlCell, sign);
-        }
-        const array = [];
-        for (let i = 0; i < 3; i++) {
-            for (let j = 0; j < 3; j++) {
-                array[`${i}, ${j}`] = cellFactory(`${i}, ${j}`, this);
-            }
-        }
-        this.data = array;
+        this.data = initializeCells();
     }
 
     cellIsEmpty(id) {
@@ -52,8 +56,8 @@ class GameTable {
     }
 
     clear() {
-        //TODO clear cells
-        
+        this.data = initializeCells();
+        this.print();
     }
 }
 
