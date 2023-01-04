@@ -1,11 +1,11 @@
 function makeComputerMove() {
-    const strategies = {
+    const strategies = [
         winNowComputerMoveStrategy,
         preventUserWinComputerMoveStrategy,
         winOnTheNextStepComputerMoveStrategy,
         firstMoveToTheCenterComputerMoveStrategy,
         randomComputerMoveStrategy,
-    }
+    ];
 
     for (const strategy of strategies) {
         if (strategy()) {
