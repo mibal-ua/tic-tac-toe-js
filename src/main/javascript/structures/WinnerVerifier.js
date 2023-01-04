@@ -1,4 +1,4 @@
-const gameIsOver = (gameTable, sign) => {
+const isWinner = (gameTable, sign) => {
     return isWinnerByRows(gameTable, sign) ||
         isWinnerByCols(gameTable, sign) ||
         isWinnerByMainDiagonal(gameTable, sign) ||
@@ -50,4 +50,4 @@ function isDraw(gameTable) {
     return true;
 }
 
-export { gameIsOver };
+export { isWinner, isDraw };
