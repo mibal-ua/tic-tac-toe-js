@@ -14,6 +14,10 @@ class Cell {
         this.html.firstChild.appendChild(text);
         this.sign = sign;
     }
+
+    getSign() {
+        return this.sign;
+    }
 }
 
 export { Cell };
