@@ -10,14 +10,14 @@ const userMove = (id, gameTable) => () => {
     if (gameTable.cellIsEmpty(id)) {
         gameTable.setSign(id, Sign.X);
         gameTable.print();
-        if (gameIsOver(gameTable)) {
+        if (gameIsOver(gameTable, Sign.X)) {
             alert('Player win!');
             gameTable.clear();
         }
 
         makeComputerMove(gameTable, Sign.O);
         gameTable.print();
-        if (gameIsOver(gameTable)) {
+        if (gameIsOver(gameTable, Sign.O)) {
             alert('Computer win!');
             gameTable.clear();
         }
