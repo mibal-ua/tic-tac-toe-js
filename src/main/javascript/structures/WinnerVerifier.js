@@ -37,10 +37,17 @@ function isWinnerBySecondDiagonal(gameTable, sign) {
     return gameTable.getSign('2, 0') === gameTable.getSign('1, 1') &&
         gameTable.getSign('1, 1') === gameTable.getSign('0, 2') &&
         gameTable.getSign('0, 2') === sign;
+}
 
-    // return gameTable.getSign(new Cell(2, 0)) == gameTable.getSign(new Cell(1, 1)) &&
-    //     gameTable.getSign(new Cell(1, 1)) == gameTable.getSign(new Cell(0, 2)) &&
-    //     gameTable.getSign(new Cell(0, 2)) == sign;
+function isDraw(gameTable) {
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            if (gameTable.cellIsEmpty(`${i}, ${j}`)) {
+                return false;
+            }
+        }
+    }
+    return true;
 }
 
 export { gameIsOver };
