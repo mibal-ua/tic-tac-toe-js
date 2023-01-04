@@ -45,6 +45,11 @@ class GameTable {
         }
     }
 
+    getSign(id) {
+        const cell = this.data[id];
+        return cell.sign;
+    }
+
     print() {
         const gameTableDiv = document.getElementById("gameTable");
         gameTableDiv.innerHTML = '';
