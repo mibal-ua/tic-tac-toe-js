@@ -2,8 +2,48 @@
 
 import { GameTable } from "./structures/GameTable.js";
 
-import { userMove } from "./structures/User.js";
+import { Sign } from "./structures/Sign.js";
 
-// game logic
-const gameTable = new GameTable();
+import { makeComputerMove } from "./structures/Computer.js"
+
+import { isWinner, isDraw } from "./structures/WinnerVerifier.js"
+
+
+
+// game start
+const gameTable = new GameTable(userMove);
 gameTable.print();
+
+
+// continue after user's move
+function userMove(id, gameTable) {
+    return () => {
+
+        function gameOver(message) {
+            alert(message);
+            gameTable.clear();
+        }
+
+        if (gameTable.cellIsEmpty(id)) {
+            gameTable.setSign(id, Sign.X);
+            gameTable.print();
+            if (isWinner(gameTable, Sign.X)) {
+                gameOver('Player win!');
+            }
+            if (isDraw(gameTable)) {
+                gameOver('Draw!');
+            }
+
+            makeComputerMove(gameTable, Sign.O);
+            gameTable.print();
+            if (isWinner(gameTable, Sign.O)) {
+                gameOver('Computer win!');
+            }
+            if (isDraw(gameTable)) {
+                gameOver('Draw!');
+            }
+        } else {
+            alert(`Cell isn't empty, choose another.`)
+        }
+    }
+}

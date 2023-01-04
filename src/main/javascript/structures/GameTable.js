@@ -4,9 +4,8 @@ import { Sign } from "./Sign.js";
 
 import { Cell } from "./Cell.js";
 
-import { userMove } from "./User.js";
+const initializeCells = (gameTable, userMove) => {
 
-const initializeCells = (gameTable) => {
     function cellFactory(id, gameTable) {
         const htmlCell = document.createElement('div');
         htmlCell.className = 'cell';
@@ -29,8 +28,9 @@ const initializeCells = (gameTable) => {
 
 class GameTable {
 
-    constructor() {
-        this.data = initializeCells(this);
+    constructor(userMove) {
+        this.userMove = userMove;
+        this.data = initializeCells(this, userMove);
     }
 
     cellIsEmpty(id) {
@@ -61,7 +61,7 @@ class GameTable {
     }
 
     clear() {
-        this.data = initializeCells(this);
+        this.data = initializeCells(this, this.userMove);
         this.print();
     }
 }
