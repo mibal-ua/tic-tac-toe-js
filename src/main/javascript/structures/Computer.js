@@ -1,4 +1,4 @@
-function makeComputerMove() {
+function makeComputerMove(gameTable, sign) {
     const strategies = [
         winNowComputerMoveStrategy,
         preventUserWinComputerMoveStrategy,
@@ -8,30 +8,30 @@ function makeComputerMove() {
     ];
 
     for (const strategy of strategies) {
-        if (strategy()) {
+        if (strategy(gameTable, sign)) {
             return;
         }
     }
 }
 
 // TODO strategies
-function winNowComputerMoveStrategy() {
+function winNowComputerMoveStrategy(gameTable, sign) {
 
 }
 
-function preventUserWinComputerMoveStrategy() {
+function preventUserWinComputerMoveStrategy(gameTable, sign) {
 
 }
 
-function winOnTheNextStepComputerMoveStrategy() {
+function winOnTheNextStepComputerMoveStrategy(gameTable, sign) {
 
 }
 
-function firstMoveToTheCenterComputerMoveStrategy() {
+function firstMoveToTheCenterComputerMoveStrategy(gameTable, sign) {
 
 }
 
-function randomComputerMoveStrategy() {
+function randomComputerMoveStrategy(gameTable, sign) {
 
 }
 
