@@ -4,21 +4,20 @@ import { Sign } from "./Sign.js";
 
 import { makeComputerMove } from "./Computer.js"
 
-import { WinnerVerifier } from "./WinnerVerifier.js"
+import { gameIsOver } from "./WinnerVerifier.js"
 
 const userMove = (id, gameTable) => () => {
-    const winnerVerifier = new WinnerVerifier();
     if (gameTable.cellIsEmpty(id)) {
         gameTable.setSign(id, Sign.X);
         gameTable.print();
-        if (winnerVerifier.gameIsOver(gameTable)) {
+        if (gameIsOver(gameTable)) {
             alert('Player win!');
             gameTable.clear();
         }
 
         makeComputerMove(gameTable, Sign.O);
         gameTable.print();
-        if (winnerVerifier.gameIsOver(gameTable)) {
+        if (gameIsOver(gameTable)) {
             alert('Computer win!');
             gameTable.clear();
         }

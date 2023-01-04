@@ -1,8 +1,4 @@
-class WinnerVerifier {
-    // TODO WinnerVerifier
-    gameIsOver(gameTable) {
-        // TODO method
-    }
+const gameIsOver = (gameTable) => {
+    // TODO method
 }
-
-export { WinnerVerifier };
+export { gameIsOver };
