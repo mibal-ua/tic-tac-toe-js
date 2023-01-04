@@ -7,11 +7,11 @@ import { GameTable } from "./structures/GameTable.js";
 import { Sign } from "./structures/Sign.js";
 
 // init methods
-import { makeComputerMove } from "./structures/Computer.js"
+import { makeComputerMove } from "./components/Computer.js"
 
-import { isWinner, isDraw } from "./structures/WinnerVerifier.js"
+import { isWinner, isDraw } from "./components/WinnerVerifier.js"
 
-import { winCounter } from "./structures/WinCounter.js"
+import { winCounter } from "./components/WinCounter.js"
 
 
 // game start
