@@ -19,8 +19,9 @@ const gameTable = new GameTable(userMove);
 gameTable.print();
 
 
-// continue after user's move
 function userMove(id, gameTable) {
+
+    // continue after user's move
     return () => {
 
         function gameOver(message) {
