@@ -1,13 +1,17 @@
 'use strict';
 
+
+// init structures
 import { GameTable } from "./structures/GameTable.js";
 
 import { Sign } from "./structures/Sign.js";
 
+// init methods
 import { makeComputerMove } from "./structures/Computer.js"
 
 import { isWinner, isDraw } from "./structures/WinnerVerifier.js"
 
+import { winCounter } from "./structures/WinCounter.js"
 
 
 // game start
@@ -22,6 +26,7 @@ function userMove(id, gameTable) {
         function gameOver(message) {
             alert(message);
             gameTable.clear();
+            winCounter(message);
         }
 
         if (gameTable.cellIsEmpty(id)) {
