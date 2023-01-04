@@ -61,7 +61,7 @@ class GameTable {
     }
 
     clear() {
-        this.data = initializeCells();
+        this.data = initializeCells(this);
         this.print();
     }
 }
