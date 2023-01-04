@@ -6,7 +6,7 @@ import { Cell } from "./Cell.js";
 
 import { userMove } from "./User.js";
 
-const initializeCells = () => {
+const initializeCells = (gameTable) => {
     function cellFactory(id, gameTable) {
         const htmlCell = document.createElement('div');
         htmlCell.className = 'cell';
@@ -21,7 +21,7 @@ const initializeCells = () => {
     const array = [];
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
-            array[`${i}, ${j}`] = cellFactory(`${i}, ${j}`, this);
+            array[`${i}, ${j}`] = cellFactory(`${i}, ${j}`, gameTable);
         }
     }
     return array;
@@ -30,7 +30,7 @@ const initializeCells = () => {
 class GameTable {
 
     constructor() {
-        this.data = initializeCells();
+        this.data = initializeCells(this);
     }
 
     cellIsEmpty(id) {
