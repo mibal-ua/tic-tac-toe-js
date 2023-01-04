@@ -7,7 +7,7 @@ import { GameTable } from "./structures/GameTable.js";
 import { Sign } from "./structures/Sign.js";
 
 // init methods
-import { makeComputerMove } from "./components/Computer.js"
+import { makeComputerMove } from "./components/ComputerMove.js"
 
 import { isWinner, isDraw } from "./components/WinnerVerifier.js"
 
