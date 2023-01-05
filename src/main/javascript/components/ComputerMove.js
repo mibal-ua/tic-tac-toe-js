@@ -32,16 +32,20 @@ function firstMoveToTheCenterComputerMoveStrategy(gameTable, sign) {
 }
 
 function randomComputerMoveStrategy(gameTable, sign) {
-    const random = () => Math.floor(Math.random() * 3);
-    while (true) {
-        const row = random();
-        const col = random();
-        const id = `${row}, ${col}`;
-        if (gameTable.cellIsEmpty(id)) {
-            gameTable.setSign(id, sign);
-            return true;
+    const data = [];
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            const index = `${i}, ${j}`;
+            if (gameTable.cellIsEmpty(index)) {
+                data.push(index);
+            }
         }
     }
+
+    const random = (max) => Math.floor(Math.random() * max);
+    const randomIndex = random(data.length);
+    const id = data[randomIndex];
+    gameTable.setSign(id, sign);
 }
 
 
