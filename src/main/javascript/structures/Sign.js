@@ -1,9 +1,9 @@
 'use strict'
 
-const Sign = {
-    X: { text: 'X' },
-    O: { text: '0' },
-    EMPTY: { text: ' ' },
+class Sign {
+    static X = { text: 'X' };
+    static O = { text: '0' };
+    static EMPTY = { text: ' ' };
 }
 
 export { Sign };

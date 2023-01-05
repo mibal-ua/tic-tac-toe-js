@@ -1,6 +1,5 @@
 'use strict';
 
-
 // init structures
 import { GameTable } from "./structures/GameTable.js";
 
