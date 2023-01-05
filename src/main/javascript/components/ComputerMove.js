@@ -1,5 +1,4 @@
-
-// TODO strategies
+'use strict';
 
 import { WinNowComputerMoveStrategy } from './strategies/WinNowComputerMoveStrategy.js'
 
