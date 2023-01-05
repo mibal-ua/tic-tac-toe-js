@@ -1,4 +1,24 @@
+
+// TODO strategies
+
+import { WinNowComputerMoveStrategy } from './strategies/WinNowComputerMoveStrategy.js'
+
+import { PreventUserWinComputerMoveStrategy } from './strategies/PreventUserWinComputerMoveStrategy.js'
+
+import { WinOnTheNextStepComputerMoveStrategy } from './strategies/WinOnTheNextStepComputerMoveStrategy.js'
+
+import { FirstMoveToTheCenterComputerMoveStrategy } from './strategies/FirstMoveToTheCenterComputerMoveStrategy.js'
+
+import { RandomComputerMoveStrategy } from './strategies/RandomComputerMoveStrategy.js';
+
+
 function makeComputerMove(gameTable, sign) {
+    const winNowComputerMoveStrategy = new WinNowComputerMoveStrategy();
+    const preventUserWinComputerMoveStrategy = new PreventUserWinComputerMoveStrategy();
+    const winOnTheNextStepComputerMoveStrategy = new WinOnTheNextStepComputerMoveStrategy();
+    const firstMoveToTheCenterComputerMoveStrategy = new FirstMoveToTheCenterComputerMoveStrategy();
+    const randomComputerMoveStrategy =  new RandomComputerMoveStrategy();
+
     const strategies = [
         winNowComputerMoveStrategy,
         preventUserWinComputerMoveStrategy,
@@ -8,45 +28,10 @@ function makeComputerMove(gameTable, sign) {
     ];
 
     for (const strategy of strategies) {
-        if (strategy(gameTable, sign)) {
+        if (strategy.tryToMakeMove(gameTable, sign)) {
             return;
         }
     }
 }
-
-// TODO strategies
-function winNowComputerMoveStrategy(gameTable, sign) {
-
-}
-
-function preventUserWinComputerMoveStrategy(gameTable, sign) {
-
-}
-
-function winOnTheNextStepComputerMoveStrategy(gameTable, sign) {
-
-}
-
-function firstMoveToTheCenterComputerMoveStrategy(gameTable, sign) {
-
-}
-
-function randomComputerMoveStrategy(gameTable, sign) {
-    const data = [];
-    for (let i = 0; i < 3; i++) {
-        for (let j = 0; j < 3; j++) {
-            const index = `${i}, ${j}`;
-            if (gameTable.cellIsEmpty(index)) {
-                data.push(index);
-            }
-        }
-    }
-
-    const random = (max) => Math.floor(Math.random() * max);
-    const randomIndex = random(data.length);
-    const id = data[randomIndex];
-    gameTable.setSign(id, sign);
-}
-
 
 export { makeComputerMove };
