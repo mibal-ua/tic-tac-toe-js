@@ -1,3 +1,5 @@
+'use strict';
+
 import { Sign } from "../../structures/Sign.js";
 
 import { AbstractComputerMoveStrategy } from './AbstractComputerMoveStrategy.js'
