@@ -1,11 +1,11 @@
-const isWinner = (gameTable, sign) => {
-    return isWinnerByRows(gameTable, sign) ||
-        isWinnerByCols(gameTable, sign) ||
-        isWinnerByMainDiagonal(gameTable, sign) ||
-        isWinnerBySecondDiagonal(gameTable, sign);
+const isWin = (gameTable, sign) => {
+    return isWinByRows(gameTable, sign) ||
+        isWinByCols(gameTable, sign) ||
+        isWinByMainDiagonal(gameTable, sign) ||
+        isWinBySecondDiagonal(gameTable, sign);
 }
 
-function isWinnerByRows(gameTable, sign) {
+function isWinByRows(gameTable, sign) {
     for (let i = 0; i < 3; i++) {
         if (gameTable.getSign(`${i}, 0`) === gameTable.getSign(`${i}, 1`) &&
             gameTable.getSign(`${i}, 1`) === gameTable.getSign(`${i}, 2`) &&
@@ -16,7 +16,7 @@ function isWinnerByRows(gameTable, sign) {
     return false;
 }
 
-function isWinnerByCols(gameTable, sign) {
+function isWinByCols(gameTable, sign) {
     for (let i = 0; i < 3; i++) {
         if (gameTable.getSign(`0, ${i}`) === gameTable.getSign(`1, ${i}`) &&
             gameTable.getSign(`1, ${i}`) === gameTable.getSign(`2, ${i}`) &&
@@ -27,13 +27,13 @@ function isWinnerByCols(gameTable, sign) {
     return false;
 }
 
-function isWinnerByMainDiagonal(gameTable, sign) {
+function isWinByMainDiagonal(gameTable, sign) {
     return gameTable.getSign('0, 0') === gameTable.getSign('1, 1') &&
         gameTable.getSign('1, 1') === gameTable.getSign('2, 2') &&
         gameTable.getSign('2, 2') === sign;
 }
 
-function isWinnerBySecondDiagonal(gameTable, sign) {
+function isWinBySecondDiagonal(gameTable, sign) {
     return gameTable.getSign('2, 0') === gameTable.getSign('1, 1') &&
         gameTable.getSign('1, 1') === gameTable.getSign('0, 2') &&
         gameTable.getSign('0, 2') === sign;
@@ -50,4 +50,4 @@ function isDraw(gameTable) {
     return true;
 }
 
-export { isWinner, isDraw };
+export { isWin, isDraw };

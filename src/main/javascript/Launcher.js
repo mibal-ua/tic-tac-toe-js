@@ -9,7 +9,7 @@ import { Sign } from "./structures/Sign.js";
 // init methods
 import { makeComputerMove } from "./components/ComputerMove.js"
 
-import { isWinner, isDraw } from "./components/WinnerVerifier.js"
+import { isWin, isDraw } from "./components/WinnerVerifier.js"
 
 import { winCounter } from "./components/WinCounter.js"
 
@@ -33,7 +33,7 @@ function userMove(id, gameTable) {
         if (gameTable.cellIsEmpty(id)) {
             gameTable.setSign(id, Sign.X);
             gameTable.print();
-            if (isWinner(gameTable, Sign.X)) {
+            if (isWin(gameTable, Sign.X)) {
                 gameOver('Player win!');
             }
             if (isDraw(gameTable)) {
@@ -42,7 +42,7 @@ function userMove(id, gameTable) {
 
             makeComputerMove(gameTable, Sign.O);
             gameTable.print();
-            if (isWinner(gameTable, Sign.O)) {
+            if (isWin(gameTable, Sign.O)) {
                 gameOver('Computer win!');
             }
             if (isDraw(gameTable)) {
