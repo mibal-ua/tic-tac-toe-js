@@ -1,6 +1,15 @@
-export class WinNowComputerMoveStrategy {
+'use strict';
 
-    tryToMakeMove(gameTable, moveSign) {
+import { AbstractComputerMoveStrategy } from './AbstractComputerMoveStrategy.js'
 
+export class WinNowComputerMoveStrategy extends AbstractComputerMoveStrategy{
+
+    constructor() {
+        super(1);
+    }
+
+    // Override
+    getFindSign(moveSign) {
+        return moveSign;
     }
 }
