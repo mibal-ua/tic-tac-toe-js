@@ -4,7 +4,7 @@ import { Sign } from "./Sign.js";
 
 import { Cell } from "./Cell.js";
 
-const initializeCells = (gameTable, userMove) => {
+const initializeCells = (gameTable, onClickEvent) => {
 
     function cellFactory(id, gameTable) {
         const htmlCell = document.createElement('div');
@@ -14,7 +14,7 @@ const initializeCells = (gameTable, userMove) => {
         textElement.className = 'sign';
         const sign = Sign.EMPTY
         htmlCell.appendChild(textElement);
-        htmlCell.onclick = userMove(htmlCell.id, gameTable);
+        htmlCell.onclick = onClickEvent(htmlCell.id, gameTable);
         return new Cell(htmlCell, sign);
     }
 
@@ -29,9 +29,9 @@ const initializeCells = (gameTable, userMove) => {
 
 class GameTable {
 
-    constructor(userMove) {
-        this.userMove = userMove;
-        this.data = initializeCells(this, userMove);
+    constructor(onClickEvent) {
+        this.userMove = onClickEvent;
+        this.data = initializeCells(this, onClickEvent);
         this.lastSign = Sign.O;
     }
 
