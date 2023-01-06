@@ -14,11 +14,24 @@ import { winCounter } from "./components/WinCounter.js"
 
 
 // game start
-const gameTable = new GameTable(userMove);
+let gameTable = new GameTable(userMoveWithComputer);
 gameTable.print();
 
 
-function userMove(id, gameTable) {
+// game configuration on the fly
+const checkBox = document.getElementById('checkbox');
+checkBox.addEventListener('change', function () {
+    if (this.checked) {
+        gameTable = new GameTable(userMoveTwoPlayers);
+    } else {
+        gameTable = new GameTable(userMoveWithComputer);
+    }
+    winCounter('RESTART');
+    gameTable.print();
+});
+
+
+function userMoveWithComputer(id, gameTable) {
 
     // continue after user's move
     return () => {
@@ -56,7 +69,7 @@ function userMove(id, gameTable) {
 
 function userMoveTwoPlayers(id, gameTable) {
 
-    // continue after user's move
+    // after every move
     return () => {
 
         function gameOver(message) {
