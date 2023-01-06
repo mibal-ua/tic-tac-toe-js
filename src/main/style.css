@@ -21,7 +21,12 @@ h1 {
 
 .sign {
     font-size: 40px;
-    text-align: center;
+}
+
+p {
+    align-content: center;
+    display: flex;
+    justify-content: center;
 }
 
 #gameTable {
@@ -59,7 +64,6 @@ h1 {
 .switch {
     display: flex;
     position: relative;
-    /*display: inline-block;*/
     width: 30px;
     height: 17px;
 }
