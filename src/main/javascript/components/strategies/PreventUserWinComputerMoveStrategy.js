@@ -12,8 +12,7 @@ class PreventUserWinComputerMoveStrategy extends AbstractComputerMoveStrategy {
 
     // Override
     getFindSign(moveSign) {
-        if (moveSign === Sign.O) return Sign.X;
-        if (moveSign === Sign.X) return Sign.O;
+        return Sign.getOppositeSign(moveSign);
     }
 }
 
