@@ -1,6 +1,7 @@
 body {
     font-family: "JetBrains Mono", serif;
     background-color: white;
+    user-select: none;
 }
 
 h1 {
@@ -15,8 +16,6 @@ h1 {
     background-color: #fff;
     height: 100px;
     width: 100px;
-    align-content: center;
-    user-select: none;
     margin: 1px;
 }
 
