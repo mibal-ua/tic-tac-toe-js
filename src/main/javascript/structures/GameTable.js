@@ -17,6 +17,7 @@ const initializeCells = (gameTable, userMove) => {
         htmlCell.onclick = userMove(htmlCell.id, gameTable);
         return new Cell(htmlCell, sign);
     }
+
     const array = [];
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
@@ -31,6 +32,7 @@ class GameTable {
     constructor(userMove) {
         this.userMove = userMove;
         this.data = initializeCells(this, userMove);
+        this.lastSign = Sign.O;
     }
 
     cellIsEmpty(id) {
@@ -63,6 +65,14 @@ class GameTable {
     clear() {
         this.data = initializeCells(this, this.userMove);
         this.print();
+    }
+
+    getLastSign() {
+        return this.lastSign;
+    }
+
+    setLastSign(sign) {
+        this.lastSign = sign;
     }
 }
 
