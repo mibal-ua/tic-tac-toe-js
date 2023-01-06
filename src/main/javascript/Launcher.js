@@ -52,3 +52,34 @@ function userMove(id, gameTable) {
         }
     }
 }
+
+
+function userMoveTwoPlayers(id, gameTable) {
+
+    // continue after user's move
+    return () => {
+
+        function gameOver(message) {
+            alert(message);
+            gameTable.clear();
+            winCounter(message);
+        }
+
+        if (gameTable.cellIsEmpty(id)) {
+            const lastSign = gameTable.getLastSign();
+            const moveSign = Sign.getOppositeSign(lastSign);
+            gameTable.setSign(id, moveSign);
+            gameTable.print();
+            if (isWin(gameTable, moveSign)) {
+                const sign = moveSign.text;
+                gameOver(`Player ${sign} win!`);
+            }
+            if (isDraw(gameTable)) {
+                gameOver('Draw!');
+            }
+            gameTable.setLastSign(moveSign);
+        } else {
+            alert(`Cell isn't empty, choose another.`)
+        }
+    }
+}
