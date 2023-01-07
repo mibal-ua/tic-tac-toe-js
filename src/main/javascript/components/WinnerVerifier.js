@@ -1,3 +1,5 @@
+'use strict';
+
 const isWin = (gameTable, sign) => {
     return isWinByRows(gameTable, sign) ||
         isWinByCols(gameTable, sign) ||

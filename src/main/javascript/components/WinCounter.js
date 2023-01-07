@@ -1,3 +1,5 @@
+'use strict';
+
 const winCounter = counterFabric();
 
 function counterFabric() {
