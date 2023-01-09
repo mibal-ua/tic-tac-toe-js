@@ -4,25 +4,25 @@ const winCounter = counterFabric();
 
 function counterFabric() {
     const score = {
-        player: 0,
-        computer: 0
+        firstPlayer: 0,
+        secondPlayer: 0
     };
     updateHoverScoreEffect(score);
 
     return (message) => {
         if (message.includes('Player')) {
-            score.player += 1;
+            score.firstPlayer += 1;
         } else if (message.includes('Computer')) {
-            score.computer += 1;
+            score.secondPlayer += 1;
         } else if (message.includes('RESTART')) {
-            score.computer = 0;
-            score.player = 0;
+            score.secondPlayer = 0;
+            score.firstPlayer = 0;
         } else if (!message.includes('Draw')) {
             throw new Error(`Unsupported counter argument '${message}'`);
         }
         updateHoverScoreEffect(score);
         const counter = document.getElementById("counter");
-        counter.innerText = `${score.player}:${score.computer}`
+        counter.innerText = `${score.firstPlayer}:${score.secondPlayer}`
     };
 }
 
@@ -40,7 +40,7 @@ function showSigns() {
 function showScore(score) {
     return () => {
         const counter = document.getElementById("counter");
-        counter.innerText = `${score.player}:${score.computer}`
+        counter.innerText = `${score.firstPlayer}:${score.secondPlayer}`
     }
 }
 
