@@ -31,7 +31,7 @@ const initializeCells = (gameTable, onClickEvent) => {
 class GameTable {
 
     constructor(onClickEvent) {
-        this.userMove = onClickEvent;
+        this.onClickEvent = onClickEvent;
         this.data = initializeCells(this, onClickEvent);
         this.lastSign = Sign.O;
     }
@@ -64,7 +64,7 @@ class GameTable {
     }
 
     clear() {
-        this.data = initializeCells(this, this.userMove);
+        this.data = initializeCells(this, this.onClickEvent);
         this.print();
     }
 
