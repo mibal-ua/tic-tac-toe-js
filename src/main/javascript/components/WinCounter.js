@@ -12,12 +12,15 @@ function counterFabric() {
     return (message) => {
         if (message.includes('Player')) {
             score.player += 1;
-        } else if (message.includes('Computer')) {
+        }
+        if (message.includes('Computer')) {
             score.computer += 1;
-        } else if (message.includes('RESTART')) {
+        }
+        if (message.includes('RESTART')) {
             score.computer = 0;
             score.player = 0;
-        } else {
+        }
+        if (!message.includes('Draw')) {
             throw new Error(`Unsupported counter argument '${message}'`);
         }
         updateHoverScoreEffect(score);
