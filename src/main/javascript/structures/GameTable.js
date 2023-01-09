@@ -38,11 +38,13 @@ class GameTable {
 
     cellIsEmpty(id) {
         const cell = this.data[id];
+        if (!cell) throw new Error(`Cell by id: '${id}' does not exists`);
         return cell.sign === Sign.EMPTY;
     }
 
     setSign(id, sign) {
         const cell = this.data[id];
+        if (!cell) throw new Error(`Cell by id: '${id}' does not exists`);
         if (cell.sign === Sign.EMPTY) {
             cell.setSign(sign);
         }
@@ -50,6 +52,7 @@ class GameTable {
 
     getSign(id) {
         const cell = this.data[id];
+        if (!cell) throw new Error(`Cell by id: '${id}' does not exists`);
         return cell.sign;
     }
 
