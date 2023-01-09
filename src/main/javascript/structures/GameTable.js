@@ -1,8 +1,8 @@
 'use strict';
 
-import { Sign } from "./Sign.js";
+import { Sign } from './Sign.js';
 
-import { Cell } from "./Cell.js";
+import { Cell } from './Cell.js';
 
 const initializeCells = (gameTable, onClickEvent) => {
 
@@ -53,7 +53,7 @@ class GameTable {
     }
 
     print() {
-        const gameTableDiv = document.getElementById("gameTable");
+        const gameTableDiv = document.getElementById('gameTable');
         gameTableDiv.innerHTML = '';
         const array = this.data;
         for (const key in array) {
