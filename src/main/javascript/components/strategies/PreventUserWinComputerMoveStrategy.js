@@ -12,7 +12,7 @@ class PreventUserWinComputerMoveStrategy extends AbstractComputerMoveStrategy {
 
     // Override
     getFindSign(moveSign) {
-        return Sign.getOppositeSign(moveSign);
+        return Sign.oppositeSign(moveSign);
     }
 }
 

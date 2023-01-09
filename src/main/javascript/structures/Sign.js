@@ -5,7 +5,7 @@ class Sign {
     static O = { text: '0' };
     static EMPTY = { text: ' ' };
 
-    static getOppositeSign(sign) {
+    static oppositeSign(sign) {
         if (sign === this.X) return this.O;
         if (sign === this.O) return this.X;
         if (sign === this.EMPTY)return this.EMPTY;

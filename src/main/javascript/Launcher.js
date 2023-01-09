@@ -78,7 +78,7 @@ function userMoveTwoPlayers(id, gameTable) {
 
         if (gameTable.cellIsEmpty(id)) {
             const lastSign = gameTable.getLastSign();
-            const moveSign = Sign.getOppositeSign(lastSign);
+            const moveSign = Sign.oppositeSign(lastSign);
             gameTable.setSign(id, moveSign);
             gameTable.print();
             if (isWin(gameTable, moveSign)) {
