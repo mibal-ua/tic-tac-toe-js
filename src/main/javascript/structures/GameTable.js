@@ -21,7 +21,8 @@ const initializeCells = (gameTable, onClickEvent) => {
     const array = [];
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
-            array[`${i}, ${j}`] = cellFactory(`${i}, ${j}`, gameTable);
+            const id = `${i}, ${j}`;
+            array[id] = cellFactory(id, gameTable);
         }
     }
     return array;
