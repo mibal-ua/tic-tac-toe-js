@@ -31,6 +31,7 @@ function makeComputerMove(gameTable, sign) {
             return;
         }
     }
+    throw new Error('Computer can\'t make a move');
 }
 
 export { makeComputerMove };
