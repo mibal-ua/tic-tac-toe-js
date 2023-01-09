@@ -17,6 +17,8 @@ function counterFabric() {
         } else if (message.includes('RESTART')) {
             score.computer = 0;
             score.player = 0;
+        } else {
+            throw new Error(`Unsupported counter argument '${message}'`);
         }
         updateHoverScoreEffect(score);
         const counter = document.getElementById("counter");
