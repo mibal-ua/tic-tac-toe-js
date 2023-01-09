@@ -7,7 +7,8 @@ function counterFabric() {
         player: 0,
         computer: 0
     };
-    addHoverScoreEffect(score);
+    updateHoverScoreEffect(score);
+
     return (message) => {
         if (message.includes('Player')) {
             score.player += 1;
@@ -17,13 +18,13 @@ function counterFabric() {
             score.computer = 0;
             score.player = 0;
         }
-        addHoverScoreEffect(score);
+        updateHoverScoreEffect(score);
         const counter = document.getElementById("counter");
         counter.innerText = `${score.player}:${score.computer}`
     };
 }
 
-function addHoverScoreEffect(score) {
+function updateHoverScoreEffect(score) {
     const counter = document.getElementById("counter");
     counter.addEventListener("mouseover", showSigns, false);
     counter.addEventListener("mouseout", showScore(score), false);
