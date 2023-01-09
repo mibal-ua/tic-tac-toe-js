@@ -1,11 +1,9 @@
 'use strict';
 
-// init structures
 import { GameTable } from "./structures/GameTable.js";
 
 import { Sign } from "./structures/Sign.js";
 
-// init methods
 import { makeComputerMove } from "./components/ComputerMove.js"
 
 import { isWin, isDraw } from "./components/WinnerVerifier.js"
