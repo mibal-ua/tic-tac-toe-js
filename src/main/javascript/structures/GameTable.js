@@ -62,12 +62,11 @@ function initializeCells(gameTable, onClickEvent) {
         const htmlCell = document.createElement('div');
         htmlCell.className = 'cell';
         htmlCell.id = id;
-        const textElement = document.createElement('p');
-        textElement.className = 'sign';
-        const sign = Sign.EMPTY
-        htmlCell.appendChild(textElement);
+        const imageElement = document.createElement('img');
+        imageElement.className = 'sign';
+        htmlCell.appendChild(imageElement);
         htmlCell.onclick = onClickEvent(htmlCell.id, gameTable);
-        return new Cell(htmlCell, sign);
+        return new Cell(htmlCell, Sign.EMPTY);
     }
 
     const array = [];
