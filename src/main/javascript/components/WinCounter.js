@@ -1,5 +1,7 @@
 'use strict';
 
+import { Sign } from "../structures/Sign.js";
+
 const winCounter = counterFabric();
 
 function counterFabric() {
@@ -11,7 +13,11 @@ function counterFabric() {
 
     return (message) => {
         if (message.includes('Player')) {
-            score.firstPlayer += 1;
+            if(message.includes(Sign.O.text)){
+                score.secondPlayer += 1;
+            } else {
+                score.firstPlayer += 1;
+            }
         } else if (message.includes('Computer')) {
             score.secondPlayer += 1;
         } else if (message.includes('RESTART')) {
