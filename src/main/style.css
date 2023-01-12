@@ -2,6 +2,8 @@ body {
     font-family: "JetBrains Mono", serif;
     background-color: white;
     user-select: none;
+    display: flex;
+    flex-direction: column;
 }
 
 h1 {
@@ -14,9 +16,6 @@ h1 {
 
 .cell {
     background-color: #fff;
-    height: 100px;
-    width: 100px;
-    margin: 1px;
     display: flex;
 }
 
@@ -39,21 +38,17 @@ p {
     background-color: darkgrey;
     height: 306px;
     width: 306px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: 33% 33% 33%;
+    grid-template-columns: 33% 33% 33%;
+    grid-gap: 0.5%;
 }
 
 #switchDiv {
-    height: 50px;
-    display: flex;
-}
-
-#switch {
     margin: auto;
     display: flex;
     align-items: center;
-    height: 50px;
 }
 
 #switchText {
