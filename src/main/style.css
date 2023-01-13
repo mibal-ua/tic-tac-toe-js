@@ -19,6 +19,7 @@ body {
     display: flex;
 }
 
+/* Image inside the cell */
 .sign {
     height: min(9.25dvi, 6.2dvh);
     margin: auto;
