@@ -1,5 +1,5 @@
 body {
-    font-family: "JetBrains Mono", serif;
+    font-family: 'JetBrains Mono', monospace;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -82,7 +82,7 @@ body {
 
 .slider:before {
     position: absolute;
-    content: "";
+    content: '';
 
     height: min(2.8dvi, 1.9dvh);
     width: min(2.8dvi, 1.9dvh);
