@@ -18,6 +18,3 @@ Programming paradigms that I used in the project:
 Game features:
 - Allowing 2 mods: player vs computer and  vs player,
 - The computer has strategies for intelligent moves (all known [strategies](https://en.wikipedia.org/wiki/Tic-tac-toe) are implemented).
-
------------------------------------------------------------------------------------
-
