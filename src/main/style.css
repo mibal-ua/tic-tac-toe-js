@@ -9,9 +9,9 @@ body {
 h1 {
     margin: auto;
     text-align: center;
-    font-size: 18px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    font-size: min(5.5dvi, 3.5dvh);
+    padding-top: min(4.2dvi, 2.8dvh);
+    padding-bottom: min(4.2dvi, 2.8dvh);
 }
 
 .cell {
@@ -20,7 +20,7 @@ h1 {
 }
 
 .sign {
-    height: 45px;
+    height: min(9.25dvi, 6.2dvh);
     margin: auto;
 }
 
@@ -31,13 +31,13 @@ p {
 }
 
 #gameTable {
-    padding: 15px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 10px;
+    padding: min(3dvi, 2dvh);
+    box-shadow: 0 min(0.9dvi, 0.6dvh) min(1.8dvi, 1.2dvh) 0 rgba(0, 0, 0, 0.2), 0 min(1.3dvi, 0.9dvh) min(4.2dvi, 2.8dvh) 0 rgba(0, 0, 0, 0.19);
+    border-radius: min(2.1dvi, 1.4dvh);
     margin: auto;
     background-color: darkgrey;
-    height: 306px;
-    width: 306px;
+    height: min(60dvi, 40dvh);
+    width: min(60dvi, 40dvh);
     display: grid;
     grid-auto-flow: column;
     grid-template-rows: 33% 33% 33%;
@@ -52,8 +52,9 @@ p {
 }
 
 #switchText {
-    padding-left: 10px;
-    padding-bottom: 2px;
+    padding-left:  min(2dvi, 1.3dvh);
+    padding-bottom: min(0.2dvi,0.13dvh);
+    font-size: min(4dvi, 2.6dvh);
 }
 
 
@@ -61,8 +62,8 @@ p {
 .switch {
     display: flex;
     position: relative;
-    width: 30px;
-    height: 17px;
+    width:  min(6.6dvi, 4.4dvh);
+    height: min(3.7dvi, 2.5dvh);
 }
 
 /* Hide default HTML checkbox */
@@ -88,10 +89,13 @@ p {
 .slider:before {
     position: absolute;
     content: "";
-    height: 13px;
-    width: 13px;
-    left: 2px;
-    bottom: 2px;
+
+    height: min(2.8dvi, 1.9dvh);
+    width: min(2.8dvi, 1.9dvh);
+
+    left: min(0.5dvi,0.3dvh);
+    bottom: min(0.5dvi,0.3dvh);
+
     background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
@@ -102,18 +106,18 @@ input:checked + .slider {
 }
 
 input:focus + .slider {
-    box-shadow: 0 0 0px #2196F3;
+    box-shadow: 0 0 0 #2196F3;
 }
 
 input:checked + .slider:before {
-    -webkit-transform: translateX(13px);
-    -ms-transform: translateX(13px);
-    transform: translateX(13px);
+    -webkit-transform: translateX(min(2.8dvi, 1.9dvh));
+    -ms-transform: translateX(min(2.8dvi, 1.9dvh));
+    transform: translateX(min(2.8dvi, 1.9dvh));
 }
 
 /* Rounded sliders */
 .slider.round {
-    border-radius: 17px;
+    border-radius: min(3.7dvi, 2.5dvh);
 }
 
 .slider.round:before {
@@ -121,6 +125,7 @@ input:checked + .slider:before {
 }
 
 #counter {
-    width: 40px;
-    height: 10px;
+    margin: auto;
+    width: min(10.5dvi, 7dvh);
+    height: min(2.1dvi, 1.4dvh);
 }
