@@ -4,7 +4,6 @@ The simple JS game for browser.
 
 ## About project
 
------------------------------------------------------------------------------------
 The simple training project to develop software design skills.
 I used it in the project:
 - Pure JS;
